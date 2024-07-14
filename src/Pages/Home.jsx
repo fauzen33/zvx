@@ -3,8 +3,15 @@ import { Header } from '../components/Header'
 import { Sidemenu } from '../components/Sidemenu'
 import { Posts } from '../components/Posts'
 import { UpdatesMenu } from '../components/UpdatesMenu'
+import { useDispatch } from 'react-redux'
+import { fetchPosts } from '../store/ducks/posts/actionCreators'
 
 export const Home = () => {
+	const dispatch = useDispatch();
+
+	React.useEffect(() => {
+		dispatch(fetchPosts())
+	}, []);
 	return (
 		<div className='bgDiv bg-[#222831] '>
 			<Header className=' fixed-top top-0 w-full' />
