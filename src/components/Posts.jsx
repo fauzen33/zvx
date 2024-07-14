@@ -7,12 +7,12 @@ export const Posts = (postss) => {
 			
 			<div>
 
-				<div className='bg-[#393E46] w-full h-fit rounded-lg my-2 p-3 flex flex-col'>
+				<div className='bg-[#393E46] w-full h-fit rounded-lg my-2 p-3 flex flex-col transition-all'>
 					<div className='flex flex-row items-center'>
 						<img src={postss.user.avtarUrl} alt='ava' className='h-10  rounded-full' />
 						<div className='flex flex-col'>
-							<h1 className='text-white text-base mx-3 my-0'>{postss.user.fullname}</h1>
-							<h2 className='text-slate-400  mx-3 text-xs'>@{postss.user.username}</h2>
+							<p className='text-white text-sm font-semibold mx-3'>{postss.user.fullname}</p>
+							<p className='text-slate-400  mx-3 text-xs'>@{postss.user.username}</p>
 							<p className='text-slate-400  mx-3 text-xs'>Сегодня в 14:88</p>
 						</div>
 					</div>
