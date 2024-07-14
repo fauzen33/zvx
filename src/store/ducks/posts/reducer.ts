@@ -7,21 +7,22 @@ const initialPostsState: PostsState = {
 	loadingState: LoadingState.NEWER,
 }
 
-export const postReducer = produce((draft: Draft<PostsState>, action: PostActions) => {
+export const postReducer = produce(
+	(draft: Draft<PostsState>, action: PostActions) => {
+		switch (action.type) {
+			case PostsActionTypes.SET_POSTS:
+				draft.items = action.payload
+				draft.loadingState = LoadingState.LOADED
 
-	switch (action.type) {
-		case PostsActionTypes.SET_POSTS: {
-			draft.items = action.payload
-			draft.loadingState = LoadingState.LOADED;
+				break
 
-			break;
+			case PostsActionTypes.SET_LOADING_STATE:
+				draft.loadingState = action.payload
+				break
+
+			default:
+				break
 		}
-		case PostsActionTypes.SET_LOADING_STATE: {
-			draft.loadingState = action.payload
-			break;
-		}
-	}
-
-
-},
-initialPostsState);
+	},
+	initialPostsState
+)
