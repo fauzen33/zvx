@@ -16,6 +16,10 @@ export const postReducer = produce(
 
 				break
 
+			case PostsActionTypes.FETCH_POSTS:
+				draft.loadingState = LoadingState.LOADING
+				break
+
 			case PostsActionTypes.SET_LOADING_STATE:
 				draft.loadingState = action.payload
 				break
