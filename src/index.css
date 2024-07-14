@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*::selection {
+	background-color: #00adb5;
+}
+.side-block {
+	position: sticky;
+	top: 50px;
+}
+
+.updates-menu {
+	position: sticky;
+	top: 50px;
+}
