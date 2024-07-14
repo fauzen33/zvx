@@ -29,7 +29,9 @@ export const setPosts = (
 	payload,
 })
 
-export const setLoadingState = (payload: LoadingState): setPostsLoadingStateInterface => ({
+export const setLoadingState = (
+	payload: LoadingState
+): setPostsLoadingStateInterface => ({
 	type: PostsActionTypes.SET_LOADING_STATE,
 	payload,
 })
@@ -38,4 +40,7 @@ export const fetchPosts = (): FetchPostsActionInterface => ({
 	type: PostsActionTypes.FETCH_POSTS,
 })
 
-export type PostActions = setPostsActionInterface | setPostsLoadingStateInterface
+export type PostActions =
+	| setPostsActionInterface
+	| setPostsLoadingStateInterface
+	| FetchPostsActionInterface

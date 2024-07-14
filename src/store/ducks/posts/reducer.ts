@@ -9,15 +9,18 @@ const initialPostsState: PostsState = {
 
 export const postReducer = produce((draft: Draft<PostsState>, action: PostActions) => {
 
-  const {type, payload} = action;
+	switch (action.type) {
+		case PostsActionTypes.SET_POSTS: {
+			draft.items = action.payload
+			draft.loadingState = LoadingState.LOADED;
 
-  if (type === PostsActionTypes.SET_POSTS) {
-		draft.items = payload;
-		draft.loadingState = LoadingState.LOADED;
-	}
-	 if (type === PostsActionTypes.SET_LOADING_STATE) {
-			draft.loadingState = action.payload
+			break;
 		}
+		case PostsActionTypes.SET_LOADING_STATE: {
+			draft.loadingState = action.payload
+			break;
+		}
+	}
 
 
 },
