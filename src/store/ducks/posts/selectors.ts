@@ -1,3 +1,12 @@
-import { PostsState } from "./contracts/state";
+import { createSelector } from 'reselect'
+import { PostsState } from './contracts/state'
+import { RootState } from './store'
 
-export const getSelectPosts = (state: PostsState) => state.items;
+export const selectPosts = (state: RootState): PostsState => state.posts
+
+export const selectLoadingState = (state: RootState) =>
+	selectPosts(state).loadingState
+export const selectPostsItems = createSelector(
+	selectPosts,
+	(posts) => posts.items
+)

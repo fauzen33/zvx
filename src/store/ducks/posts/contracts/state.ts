@@ -8,6 +8,7 @@ export enum LoadingState  {
 }
 
 export interface Post  {
+	_id: string;
 	text: string;
 	user: {
 		fullname: string;

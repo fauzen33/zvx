@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 import { rootReducer } from '../../rootReducer'
 import { compose } from 'redux'
 import rootSaga from '../../saga'
+import { PostsState } from './contracts/state'
 
 
 const sagaMiddleware = createSagaMiddleware()
@@ -16,7 +17,9 @@ const composeEnhancers =
 		(window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
 	compose
 	
-
+export interface RootState {
+	posts: PostsState;
+}
 	
 
 export const store = configureStore({

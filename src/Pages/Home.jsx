@@ -5,13 +5,18 @@ import { Posts } from '../components/Posts'
 import { UpdatesMenu } from '../components/UpdatesMenu'
 import { useDispatch } from 'react-redux'
 import { fetchPosts } from '../store/ducks/posts/actionCreators'
+import { useSelector } from 'react-redux'
+import { selectPostsItems } from '../store/ducks/posts/selectors'
+import { AddPostForm } from '../components/AddPostForm'
+
 
 export const Home = () => {
-	const dispatch = useDispatch();
+	const dispatch = useDispatch()
+	const posts = useSelector(selectPostsItems);
 
 	React.useEffect(() => {
 		dispatch(fetchPosts())
-	}, []);
+	}, [])
 	return (
 		<div className='bgDiv bg-[#222831] '>
 			<Header className=' fixed-top top-0 w-full' />
@@ -19,8 +24,13 @@ export const Home = () => {
 				<div className='side-block'>
 					<Sidemenu />
 				</div>
+				<div className=' flex w-1/3 mx-1 my-2 flex-col'>
+					<AddPostForm />
+				{posts.map((postss) => (
+					<Posts text={postss.text} user={postss.user} />
+				))}
+				</div>
 
-				<Posts />
 				<div className='updates-menu'>
 					<UpdatesMenu />
 				</div>
