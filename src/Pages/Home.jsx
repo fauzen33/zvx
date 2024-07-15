@@ -27,7 +27,8 @@ export const Home = () => {
 				<div className=' flex w-1/3 mx-1 my-2 flex-col'>
 					<AddPostForm />
 				{posts.map((postss) => (
-					<Posts text={postss.text} user={postss.user} />
+					<Posts key={postss._id}  avatarUrl={postss.avatarUrl} fullname={postss.fullname} username={postss.username} text={postss.text}/>
+					
 				))}
 				</div>
 
